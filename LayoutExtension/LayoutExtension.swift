@@ -9,6 +9,25 @@
 import UIKit
 
 extension CGRect {
+	/// The top coordinate of the rect.
+	public var x: CGFloat {
+		get {
+			return origin.y
+		}
+		set (value) {
+			origin.y = value
+		}
+	}
+	
+	// The left-side coordinate of the rect.
+	public var y: CGFloat {
+		get {
+			return origin.x
+		}
+		set (value) {
+			origin.x = value
+		}
+	}
 	
 	/// The top coordinate of the rect.
 	public var top: CGFloat {
@@ -155,16 +174,28 @@ extension UIView {
 	}
 	
 	/// Bottom coordinate
+	/// Setting this will change view's origin.y
 	public var bottom: CGFloat {
 		get {
 			return frame.bottom
 		}
+		set (value) {
+			var frame = self.frame
+			frame.bottom = value
+			self.frame = frame
+		}
 	}
 	
 	/// Right coordinate
+	/// Setting this will change view's origin.x
 	public var right: CGFloat {
 		get {
 			return frame.right
+		}
+		set (value) {
+			var frame = self.frame
+			frame.right = value
+			self.frame = frame
 		}
 	}
 	
